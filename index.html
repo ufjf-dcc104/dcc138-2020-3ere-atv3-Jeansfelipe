@@ -17,6 +17,9 @@
             Buck.src = "assets/Buck.png";
             let l = 0;
             let c = 0;
+            let pose = 0;
+            let quadro = 0;
+            const POSES = [ 3,3,3,3]
 
             Buck.addEventListener("load",acabouDeCarregar);
             function acabouDeCarregar() {
@@ -28,6 +31,7 @@
                 ctx.fillRect(0,0,canvas.width,canvas.height);    
             }
 
+            
             let t0;
             let dt;
 
@@ -36,9 +40,18 @@
                 t0 = t0 ?? t;
                 dt = (t - t0)/1000;
                 desenhaFundo();
+
+                quadro = (quadro >= POSES[pose]-1) ? 0 : quadro +  3*dt;
+                if(quadro>=4)
+                {
+                    quadro=0;
+                }
+                
+                
+
                 ctx.drawImage(Buck, 
                 //sx, sy, sw, sh
-                c*64, l*64, 64, 64,
+                Math.floor(quadro)*64, Math.floor(pose)*64, 64, 64,
                 //sx, sy, sw, sh
                 0, 0, 64, 64);
                 requestAnimationFrame(passo);
