@@ -12,8 +12,10 @@
         <script>
             const canvas = document.querySelector("canvas");
             const ctx = canvas.getContext("2d");
-            
+            const pokemon = new Image(100,100);
             const pokemon = document.createElement("img");
+            pokemon.src = "assets/Buck.png";
+
 
             pokemon.addEventListener("load",acabouDeCarregar);
             function acabouDeCarregar() {
