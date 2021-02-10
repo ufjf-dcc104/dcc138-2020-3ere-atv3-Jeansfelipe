@@ -9,12 +9,17 @@
     <body>
         <h1>Exemplo 02</h1>
         <canvas></canvas>
-        <img src = "assets/Ampharos.png"/>
         <script>
             const canvas = document.querySelector("canvas");
             const ctx = canvas.getContext("2d");
-            const pokemon = document.querySelector("img");
+            
+            const pokemon = document.createElement("img");
 
+            pokemon.addEventListener("load",acabouDeCarregar);
+            function acabouDeCarregar() {
+                ctx.drawImage(pokemon,0,0);
+                
+            }
             ctx.fillStyle = "green";
             ctx.fillRect(0,0,canvas.width,canvas.height);
         </script>
