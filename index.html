@@ -12,14 +12,19 @@
         <script>
             const canvas = document.querySelector("canvas");
             const ctx = canvas.getContext("2d");
-            const pokemon = new Image(100,100);
-            const pokemon = document.createElement("img");
-            pokemon.src = "assets/Buck.png";
+            //const Buck = new Image();
+            const Buck = document.createElement("img");
+            Buck.src = "assets/Buck.png";
+            let l = 0;
+            let c = 0;
 
-
-            pokemon.addEventListener("load",acabouDeCarregar);
+            Buck.addEventListener("load",acabouDeCarregar);
             function acabouDeCarregar() {
-                ctx.drawImage(pokemon,0,0);
+                ctx.drawImage(Buck, 
+                //sx, sy, sw, sh
+                c*64, l*64, 64, 64,
+                //sx, sy, sw, sh
+                0, 0, 64, 64);
                 
             }
             ctx.fillStyle = "green";
