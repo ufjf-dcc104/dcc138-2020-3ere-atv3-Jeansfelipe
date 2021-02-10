@@ -20,15 +20,32 @@
 
             Buck.addEventListener("load",acabouDeCarregar);
             function acabouDeCarregar() {
+               
+                
+            }
+            function desenhaFundo() {
+                ctx.fillStyle = "green";
+                ctx.fillRect(0,0,canvas.width,canvas.height);    
+            }
+
+            let t0;
+            let dt;
+
+            requestAnimationFrame(passo);
+            function passo(t) {
+                t0 = t0 ?? t;
+                dt = (t - t0)/1000;
+                desenhaFundo();
                 ctx.drawImage(Buck, 
                 //sx, sy, sw, sh
                 c*64, l*64, 64, 64,
                 //sx, sy, sw, sh
                 0, 0, 64, 64);
-                
+                requestAnimationFrame(passo);
+                t0 = t;
             }
-            ctx.fillStyle = "green";
-            ctx.fillRect(0,0,canvas.width,canvas.height);
+
+
         </script>
     </body>
 </HTML>
