@@ -19,7 +19,7 @@
             let c = 0;
             let pose = 0;
             let quadro = 0;
-            const POSES = [ 3,3,3,3]
+            const POSES = [ {pmax: 4,pv: 4},{pmax: 4,pv: 4},{pmax: 4,pv: 4},{pmax: 4,pv: 4}]
 
             Buck.addEventListener("load",acabouDeCarregar);
             function acabouDeCarregar() {
@@ -41,11 +41,7 @@
                 dt = (t - t0)/1000;
                 desenhaFundo();
 
-                quadro = (quadro >= POSES[pose]-1) ? 0 : quadro +  3*dt;
-                if(quadro>=4)
-                {
-                    quadro=0;
-                }
+                quadro = (quadro >= POSES[pose].pmax) ? 0 : quadro +  POSES[pose].pv *dt;
                 
                 
 
